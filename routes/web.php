@@ -1,7 +1,10 @@
 <?php
 
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return inertia('Home');
+    return Inertia::render('Home', ['name' => 'anhar']);
 });
+
+// Route::inertia('/', 'Home');

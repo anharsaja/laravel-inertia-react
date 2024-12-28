@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Home() {
+export default function Home({name}) {
     return (
-        <h1 className='title'>User Testing</h1>
+        <h1 className='title'>User {name}</h1>
     )
 }
