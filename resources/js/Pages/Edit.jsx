@@ -2,7 +2,7 @@ import { Head, useForm } from '@inertiajs/react'
 import React from 'react'
 import { useRoute } from '../../../vendor/tightenco/ziggy/src/js';
 
-export default function Edit({post}) {
+export default function Edit({ post }) {
     const route = useRoute();
     const { data, setData, put, errors, processing } = useForm({
         body: post.body,
@@ -36,7 +36,7 @@ export default function Edit({post}) {
                         className="primary-btn mt-4"
                         disabled={processing}
 
-                    >Edit 
+                    >Edit
                     </button>
                 </form>
             </div>

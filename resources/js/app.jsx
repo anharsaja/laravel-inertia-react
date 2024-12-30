@@ -8,7 +8,7 @@ import Layout from "@/Layouts/Layout"
 
 createInertiaApp({
     title: title => title ? `${title} - Inertia Koncotl` : 'Laravel Inertia Konolllll',
-    
+
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true })
         let page = pages[`./Pages/${name}.jsx`]
@@ -19,7 +19,7 @@ createInertiaApp({
         createRoot(el).render(<App {...props} />)
     },
 
-    progress:{
+    progress: {
         color: "#fff",
         showSpinner: true
     }

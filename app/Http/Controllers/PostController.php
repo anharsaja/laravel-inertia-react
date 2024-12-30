@@ -14,7 +14,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::latest()->paginate(5);
-        return Inertia("Home", ['name'=>'Anhhhhh', 'posts' => $posts]);
+        return Inertia("Home", ['name' => 'Anhhhhh', 'posts' => $posts]);
     }
 
     /**
@@ -23,7 +23,7 @@ class PostController extends Controller
     public function create()
     {
         $name = "Create";
-        return Inertia("Create", ['name'=>$name]);
+        return Inertia("Create", ['name' => $name]);
     }
 
     /**
@@ -32,7 +32,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         // sleep(1);
-        
+
         $data = $request->validate([
             'body' => ['required']
         ]);
@@ -55,7 +55,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return Inertia('Edit', ['post'=> $post]);
+        return Inertia('Edit', ['post' => $post]);
     }
 
     /**

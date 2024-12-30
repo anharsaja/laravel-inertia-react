@@ -8,7 +8,7 @@ export default function Home({ name, posts }) {
     const { component } = usePage()
 
     const [flashMsg, setFlashMsg] = useState(flash.message)
-    
+
     setTimeout(() => {
         setFlashMsg(null)
     }, 2000)
