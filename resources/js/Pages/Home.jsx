@@ -1,12 +1,26 @@
-import { Link } from '@inertiajs/react'
-import {useRoute } from '../../../vendor/tightenco/ziggy'
+import { Link, usePage } from '@inertiajs/react'
+import { useRoute } from '../../../vendor/tightenco/ziggy'
+import { useState } from 'react';
 
 export default function Home({ name, posts }) {
     const route = useRoute();
+    const { flash } = usePage().props
+
+    const [flashMsg, setFlashMsg] = useState(flash.message)
+    setTimeout(() => {
+        setFlashMsg(null)
+    }, 2000)
 
     return (
+        
         <>
             <h1 className="title">Page {name}</h1>
+            {
+                flashMsg && (
+                    <div className='absolute top-24 right-6 bg-rose-500 p-2 rounded-md shadow-lg text-sm text-white'>
+                        {flashMsg}
+                    </div>
+                )}
 
             <div>
                 {posts.data.map(post => (
@@ -19,7 +33,7 @@ export default function Home({ name, posts }) {
                         <p className="font-medium">{post.body}</p>
 
                         {/* <Link href={`post/${post.id}`} className="text-link">Read more ...</Link> */}
-                        
+
                         <Link href={route('post.show', post)} className="text-link">Read more ...</Link>
                     </div>
                 ))}
@@ -27,19 +41,18 @@ export default function Home({ name, posts }) {
 
             <div className='py-12 px-4'>
                 {posts.links.map(link => (
-                    link.url? (
-                    <Link
-                        key={link.label}
-                        href={link.url}
-                        dangerouslySetInnerHTML={{__html: link.label}}
-                        className={`p-1 mx-1 ${
-                            link.active ? "text-blue-500 font-bold" : "" 
-                        }`}
-                    />
-                    ):(
-                        <span 
+                    link.url ? (
+                        <Link
                             key={link.label}
-                            dangerouslySetInnerHTML={{__html: link.label}}
+                            href={link.url}
+                            dangerouslySetInnerHTML={{ __html: link.label }}
+                            className={`p-1 mx-1 ${link.active ? "text-blue-500 font-bold" : ""
+                                }`}
+                        />
+                    ) : (
+                        <span
+                            key={link.label}
+                            dangerouslySetInnerHTML={{ __html: link.label }}
                             className='p-1 mx-1 text-slate-300'
                         >
                         </span>
