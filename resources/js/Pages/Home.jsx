@@ -5,16 +5,17 @@ import { useState } from 'react';
 export default function Home({ name, posts }) {
     const route = useRoute();
     const { flash } = usePage().props
-    const {component} = usePage()
+    const { component } = usePage()
 
     const [flashMsg, setFlashMsg] = useState(flash.message)
+    
     setTimeout(() => {
         setFlashMsg(null)
     }, 2000)
 
     return (
         <>
-        <Head title={component}/>
+            <Head title={component} />
 
             <h1 className="title">Page {name}</h1>
             {
@@ -22,7 +23,15 @@ export default function Home({ name, posts }) {
                     <div className='absolute top-24 right-6 bg-rose-500 p-2 rounded-md shadow-lg text-sm text-white'>
                         {flashMsg}
                     </div>
-                )}
+                )
+            }
+            {
+                flash.success && (
+                    <div className='absolute top-24 right-6 bg-green-500 p-2 rounded-md shadow-lg text-sm text-white'>
+                        {flash.success}
+                    </div>
+                )
+            }
 
             <div>
                 {posts.data.map(post => (
