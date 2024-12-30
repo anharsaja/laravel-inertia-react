@@ -1,9 +1,9 @@
-import { Head, useForm, usePage } from "@inertiajs/react"
+import { Head, Link, useForm, usePage } from "@inertiajs/react"
 import { useRoute } from '../../../vendor/tightenco/ziggy'
 
 export default function Show({ post }) {
     const { delete: destroy } = useForm();
-    const {component} = usePage()
+    const { component } = usePage()
 
     function submit(e) {
         e.preventDefault()
@@ -13,7 +13,7 @@ export default function Show({ post }) {
 
     return (
         <>
-        <Head title={component}/>
+            <Head title={component} />
             <h1 className="title">Show</h1>
 
             <div className="p-4 border-b">
@@ -31,6 +31,12 @@ export default function Show({ post }) {
                             Delete
                         </button>
                     </form>
+                    {/* <Link href={`/post/${post.id}/edit`} className="bg-blue-500 rounded-md text-sm px-4 py-1 text-white">
+                        Edit
+                    </Link> */}
+                    <Link href={route('post.edit', post)} className="bg-blue-500 rounded-md text-sm px-4 py-1 text-white">
+                        Edit
+                    </Link>
                 </div>
 
             </div>

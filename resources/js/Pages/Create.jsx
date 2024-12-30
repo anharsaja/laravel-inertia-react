@@ -8,7 +8,7 @@ export default function Create({name}) {
 
     function submit(e) {
         e.preventDefault();
-        post('/');
+        post('/post');
     }
     
     return (
