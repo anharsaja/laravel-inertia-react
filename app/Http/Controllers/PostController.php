@@ -73,6 +73,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Data sudah terhapus');
     }
 }
