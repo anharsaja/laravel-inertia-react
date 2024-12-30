@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 //     return Inertia::render('Create', ['name' => 'create']);
 // });
 
-// Route::inertia('/', 'Home');
+Route::get("/", [PostController::class,"index"]);
 
-
-Route::resource("/",PostController::class);
+Route::resource("post",PostController::class)->except("index");

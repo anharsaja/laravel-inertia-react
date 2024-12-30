@@ -15,6 +15,8 @@ export default function Home({ name, posts }) {
                             <span>{new Date(post.created_at).toLocaleTimeString()}</span>
                         </div>
                         <p className="font-medium">{post.body}</p>
+
+                        <Link href={`post/${post.id}`} className="text-link">Read more ...</Link>
                     </div>
                 ))}
             </div>
