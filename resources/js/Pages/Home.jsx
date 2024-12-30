@@ -1,10 +1,11 @@
-import { Link, usePage } from '@inertiajs/react'
+import { Head, Link, usePage } from '@inertiajs/react'
 import { useRoute } from '../../../vendor/tightenco/ziggy'
 import { useState } from 'react';
 
 export default function Home({ name, posts }) {
     const route = useRoute();
     const { flash } = usePage().props
+    const {component} = usePage()
 
     const [flashMsg, setFlashMsg] = useState(flash.message)
     setTimeout(() => {
@@ -12,8 +13,9 @@ export default function Home({ name, posts }) {
     }, 2000)
 
     return (
-        
         <>
+        <Head title={component}/>
+
             <h1 className="title">Page {name}</h1>
             {
                 flashMsg && (

@@ -1,4 +1,4 @@
-import { useForm } from '@inertiajs/react'
+import { Head, useForm } from '@inertiajs/react'
 import React from 'react'
 
 export default function Create({name}) {
@@ -13,6 +13,8 @@ export default function Create({name}) {
     
     return (
         <>
+
+        <Head title="Create"/>
         <h1 className="title">Page {name}</h1>
 
         <div className="w-1/2 mx-auto">

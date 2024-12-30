@@ -1,9 +1,9 @@
-import { useForm } from "@inertiajs/react"
-import {useRoute } from '../../../vendor/tightenco/ziggy'
+import { Head, useForm, usePage } from "@inertiajs/react"
+import { useRoute } from '../../../vendor/tightenco/ziggy'
 
 export default function Show({ post }) {
-
     const { delete: destroy } = useForm();
+    const {component} = usePage()
 
     function submit(e) {
         e.preventDefault()
@@ -13,6 +13,7 @@ export default function Show({ post }) {
 
     return (
         <>
+        <Head title={component}/>
             <h1 className="title">Show</h1>
 
             <div className="p-4 border-b">
